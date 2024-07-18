@@ -7,7 +7,9 @@
     <title>Vanilla App Template</title>
     
     <script type="module" crossorigin src="/goit-js-hw-11/commonHelpers.js"></script>
-    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-7a92d122.css">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-11/assets/vendor-8c59ed88.js">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/vendor-1cd1f9d9.css">
+    <link rel="stylesheet" href="/goit-js-hw-11/assets/index-749a3b0c.css">
   </head>
   <body>
     <header class="header">
@@ -17,13 +19,16 @@
 </header>
 
 
-    <section>
-    <form action="/search" method="get">
-      <label class label for="search-query"></label>
-      <input class = "input" placeholder="   Search images ..." id="search-query" name="query" required>
-      <button type="submit">Szukaj</button>
+  <section class ="search">
+    <form id="search-form">
+      <label for="search-query"></label>
+      <input class="input" placeholder="Search images ..." id="search-query" name="query" required>
+      <button class="btn" type="submit">Szukaj</button>
     </form>
-    </section>
+  </section>
+  <section>
+    <ul class="gallery"></ul>
+  </section>
 
     <!-- Loads the specified .html file -->
     <section class="vite-promo">
@@ -36,3 +41,31 @@
     
   </body>
 </html>
+<!-- 
+<li class="gallery-item">
+  <a class="gallery-link" href="large-image.jpg">
+    <img class="gallery-image" src="small-image.jpg" alt="Image descripti2 on" />
+  </a>
+</li> -->
+
+
+
+<!-- const items = images.map(image => {
+const li = document.createElement("li");
+li.classList.add("gallery-item");
+
+const a = document.createElement("a");
+a.classList.add("gallery-link");
+a.href = image.original;
+
+const link = document.createElement("img");
+link.classList.add("gallery-image");
+link.src = image.preview;
+
+link.alt = image.description;
+
+a.appendChild(link);
+li.appendChild(a);
+
+return li;
+}); -->
