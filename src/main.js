@@ -14,6 +14,9 @@ document.getElementById('search-form').addEventListener('submit', event => {
 });
 
 function fetchImages(query) {
+    const loader = document.querySelector('.loader');
+     loader.classList.remove('hidden');
+    loader.style.display = 'block'; //
     const apiKey = '44974018-ca766bb5bf44f97c206908e6f'; 
     const url = `https://pixabay.com/api/?key=${apiKey}&q=${query}&image_type=photo&orientation=horizontal&safesearch=true`;
 
@@ -25,6 +28,8 @@ function fetchImages(query) {
             return response.json();
         })
         .then(data => {
+            loader.classList.add('hidden');
+            loader.style.display = 'none';
             if (data.hits.length === 0) {
                 iziToast.error({
                     title: 'Error',
@@ -35,6 +40,8 @@ function fetchImages(query) {
             }
         })
         .catch(error => {
+            loader.classList.add('hidden');
+            loader.style.display = 'none'; 
             
             iziToast.error({
                 title: 'Error',
