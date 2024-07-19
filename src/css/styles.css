@@ -72,19 +72,19 @@ img {
   display: block;
   width: 360px;
   height: 200px;
-  border: 2px solid #808080;
+  
 }
 .search{
 
   margin-bottom: 32px;
 }
 .image-info {
-  background: FFFFFF);
+  background: FFFFFF;
   color: 2E2F42;
   padding: 10px;
   border-radius: 3px;
   font-size: 14px;
-  margin-top: 5px;
+ 
   display: flex;
   justify-content: space-between;
 
@@ -92,7 +92,7 @@ img {
 }
 
 .image-info span {
-  font-weight: 2E2F42;
+  font-weight: #2E2F42;
 }
 .info {
 
@@ -101,4 +101,7 @@ flex-direction: column;
 text-align: center;
 justify-items: center;
 
+}
+.gallery-item{
+border: 2px solid #808080;
 }
