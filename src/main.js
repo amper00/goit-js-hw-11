@@ -1,4 +1,5 @@
 
+import './css/styles.css'; 
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 // Opisany w dokumentacji
@@ -34,6 +35,7 @@ function fetchImages(query) {
             }
         })
         .catch(error => {
+            
             iziToast.error({
                 title: 'Error',
                 message: `There was a problem with the fetch operation: ${error}`
