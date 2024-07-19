@@ -78,3 +78,27 @@ img {
 
   margin-bottom: 32px;
 }
+.image-info {
+  background: FFFFFF);
+  color: 2E2F42;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-between;
+
+  gap: 5px;
+}
+
+.image-info span {
+  font-weight: 2E2F42;
+}
+.info {
+
+display: flex;
+flex-direction: column;
+text-align: center;
+justify-items: center;
+
+}

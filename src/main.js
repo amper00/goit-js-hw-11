@@ -41,22 +41,41 @@ function fetchImages(query) {
             console.log(error);
         });
 }
-function displayImages(images) {
-    const gallery = document.querySelector('.gallery');
-    gallery.innerHTML = '';
-    images.forEach(image => {
-        const a = document.createElement('a');
-        a.href = image.largeImageURL;
-        a.classList.add('gallery-item');
+ function displayImages(images) {
+        const gallery = document.querySelector('.gallery');
+        gallery.innerHTML = '';
 
-        const img = document.createElement('img');
-        img.src = image.webformatURL;
-        img.alt = image.tags;
+        const items = images.map(image => {
+            const li = document.createElement("li");
+            li.classList.add("gallery-item");
+
+            const a = document.createElement("a");
+            a.classList.add("gallery-link");
+            a.href = image.largeImageURL;
+            a.setAttribute('data-lightbox', 'gallery');
+            a.setAttribute('data-title', `❤️ ${image.likes} 👁️ ${image.views} 💬 ${image.comments} ⬇️ ${image.downloads}`);
+
+            const img = document.createElement("img");
+            img.classList.add("gallery-image");
+            img.src = image.webformatURL;
+            img.alt = image.tags;
+
+             const underDiv = document.createElement("div");
+        underDiv.classList.add("image-info");
+         underDiv.innerHTML = `
+            <div class = "info"><span>Likes</span> ${image.likes}</div>
+            <div class = "info"><span>Views</span> ${image.views}</div>
+            <div class = "info"><span>Comments</span> ${image.comments}</div>
+            <div class = "info"><span>Downloads</span> ${image.downloads}</div>
+        `;
 
         a.appendChild(img);
-        gallery.appendChild(a);
-    });
+        li.appendChild(a);
+        li.appendChild(underDiv);
 
+        return li;
+        });
+items.forEach(item => gallery.appendChild(item));
     // Initialize SimpleLightbox
     const lightbox = new SimpleLightbox('.gallery a', {
         captionType: 'attr',
